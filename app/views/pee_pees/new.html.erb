@@ -1,0 +1,21 @@
+<h1>New Pee Pee</h1>
+
+<%= render 'form', pee_pee: @pee_pee %>
+
+<table>
+  <thead>
+    <tr>
+      <th>List of pee pees</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pee_pees.each do |pee_pee| %>
+      <tr>
+        <td><%= pee_pee.created_at.strftime('%A')%> @ <%= pee_pee.created_at.strftime('%r')%></td>
+        <td><%= link_to 'Delete', pee_pee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

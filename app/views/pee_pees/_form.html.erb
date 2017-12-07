@@ -1,0 +1,21 @@
+<%= form_with(model: pee_pee, local: true) do |form| %>
+  <% if pee_pee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pee_pee.errors.count, "error") %> prohibited this pee_pee from being saved:</h2>
+
+      <ul>
+      <% pee_pee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :description, id: :pee_pee_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "SHE PEED!" %>
+  </div>
+<% end %>

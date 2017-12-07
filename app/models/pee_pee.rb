@@ -1,0 +1,2 @@
+class PeePee < ApplicationRecord
+end
