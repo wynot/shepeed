@@ -14,7 +14,7 @@
     <% @pee_pees.each do |pee_pee| %>
       <tr>
         <td><%= pee_pee.created_at.strftime('%A')%> @ <%= pee_pee.created_at.strftime('%r')%></td>
-        <td><%= link_to 'Delete', pee_pee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Delete', pee_pee, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

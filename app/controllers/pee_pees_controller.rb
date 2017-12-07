@@ -29,7 +29,7 @@ class PeePeesController < ApplicationController
 
     respond_to do |format|
       if @pee_pee.save
-        format.html { redirect_to @pee_pee, notice: 'Pee pee was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Pee pee was successfully created.' }
         format.json { render :show, status: :created, location: @pee_pee }
       else
         format.html { render :new }

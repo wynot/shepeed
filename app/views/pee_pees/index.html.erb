@@ -1,11 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Pee Pees</h1>
-
-<%= render 'form', pee_pee: @pee_pee %>
-
-<br>
-
+<div class="center jumbotron">
+  <h1>Record a Pee</h1>
+  <%= render 'form', pee_pee: @pee_pee %>
+  <h2>Boubs last peed <strong><%= ((Time.now - PeePee.last.created_at) / 1.hour).round(1) %></strong> hours ago</h2>
+</div>
 <table>
   <thead>
     <tr>
@@ -15,10 +13,10 @@
   </thead>
 
   <tbody>
-    <% @pee_pees.each do |pee_pee| %>
+    <% @pee_pees.order("created_at desc").each do |pee_pee| %>
       <tr>
         <td><%= pee_pee.created_at.strftime('%A')%> @ <%= pee_pee.created_at.strftime('%r')%></td>
-        <td><%= link_to 'Delete', pee_pee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Delete', pee_pee, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
